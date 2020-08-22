@@ -22,3 +22,44 @@ Laravel Routing & Vue Routing
     npm run watch
         npm run watchコマンドはターミナルで実行し続け、関連ファイル全部の変更を監視します。Webpackは変更を感知すると、
         アセットを自動的に再コンパイルします。
+
+==============================================================================================================
+
+                                Introduction to API Development
+
+API Setup & Basic Contacts Test
+    UnitTest, FeatureTest
+        https://viblo.asia/p/co-ban-ve-unittest-trong-laravel-gDVK29Mj5Lj
+        https://viblo.asia/p/feature-test-trong-laravel-GrLZD8wwZk0
+        https://qiita.com/franz/items/77a47b009b07997ce39c
+    cấu hình cho PHPUnit
+        phpunit.xml
+    Run test:
+        vendor/bin/phpunit
+    Tạo alias cho câu lệnh hay dùng
+        alias pu='clear && vendor/bin/phpunit'
+    Tạo 1 test trong thư mục Feature
+        php artisan make:test ContactsTest
+    Nếu muốn Tạo 1 test trong thư mục Unit
+        php artisan make:test UserTest --unit
+    Class phải có hậu tố tương ứng với thuộc tính suffix trong file phpunit.xml, mặc định là Test => Nếu không
+        phpunit sẽ bỏ qua k test class này.
+    Extends class Tests/TestCase.
+    Tên function sử dụng tiền tố là test và nên mô tả rõ công việc của nó. Nếu không muốn sử dụng chữ test thì hãy sử
+        dụng annotation @test trước mỗi function.
+        /** @test */
+    test single method:
+        clear && vendor/bin/phpunit --filter a_contact_can_be_added
+    Tạo Model và migration
+        php artisan make:model Contact -m
+    Câu lệnh tạo migration riêng: php artisan make:migration CreateContactsTable
+    Controller
+        php artisan make:controller ContactsController
+    <!-- Run tất cả tests: -->
+    ./vendor/bin/phpunit
+    <!-- Run theo testsuite -->
+    ./vendor/bin/phpunit --testsuite Unit
+    <!-- Run từng file: -->
+    ./vendor/bin/phpunit tests/Unit/ExampleTest.php
+    <!-- Format output: -->
+    ./vendor/bin/phpunit --testdox
