@@ -1,0 +1,19 @@
+                                Installation & Project Setup
+
+Initial Project Setup
+    Tạm thời tắt phần mềm diệt virut và cài đặt project laravel
+        composer create-project --prefer-dist laravel/laravel laravel_vuejs
+        Để vào được trang web của dự án thì cần truy cập vào trong folder public, để có thể xóa
+        được public trên link url thì có thể dùng virtual host
+        <VirtualHost *:80>
+            ServerAdmin laravel_vuejs.xyz
+            DocumentRoot "C:/xampp/htdocs/laravel_vuejs/public"
+            ServerName laravel_vuejs.xyz
+            ErrorLog "logs/laravel_vuejs.xyz-error.log"
+            CustomLog "logs/laravel_vuejs.xyz-access.log" common
+        </VirtualHost>
+    - Remove public trên URL
+    C:\Windows\System32\drivers\etc -----------> hosts
+        127.0.0.1       laravel_vuejs.xyz
+    php artisan ui vue --auth
+    npm install vue-router
