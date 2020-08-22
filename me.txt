@@ -17,3 +17,8 @@ Initial Project Setup
         127.0.0.1       laravel_vuejs.xyz
     php artisan ui vue --auth
     npm install vue-router
+Laravel Routing & Vue Routing
+    npm install
+    npm run watch
+        npm run watchコマンドはターミナルで実行し続け、関連ファイル全部の変更を監視します。Webpackは変更を感知すると、
+        アセットを自動的に再コンパイルします。
