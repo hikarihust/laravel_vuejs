@@ -82,3 +82,4 @@ Basic Validation
         指定されたキーのエラーがセッションに存在するかアサートする
     pf email_is_required
 Test Cleanup & Refactor
+Email & Date Fields
