@@ -63,3 +63,20 @@ API Setup & Basic Contacts Test
     ./vendor/bin/phpunit tests/Unit/ExampleTest.php
     <!-- Format output: -->
     ./vendor/bin/phpunit --testdox
+Basic Validation
+    Tạo alias cho câu lệnh hay dùng
+        alias pf='clear && vendor/bin/phpunit --filter'
+    Test method a_name_is_required
+        pf a_name_is_required
+        <=>clear && vendor/bin/phpunit --filter a_name_is_required
+    assertCount($count, $array): 配列$arrayの値の数が$countである
+    Test không có contact nào được thêm vào database
+        $this->assertCount(0, Contact::all());
+    $response = $this->post('/api/contacts', [
+        'email' => 'test@email.com',
+        'birthday' => '05/14/1988',
+        'company' => 'ABC String',
+    ]);
+    $response->assertSessionHasErrors('name');
+        指定されたキーのエラーがセッションに存在するかアサートする
+    pf email_is_required
