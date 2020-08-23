@@ -83,3 +83,6 @@ Basic Validation
     pf email_is_required
 Test Cleanup & Refactor
 Email & Date Fields
+Fetching a Single Contact
+    php artisan make:factory ContactFactory -m Contact
+    assertJsonメソッドはレスポンスを配列へ変換
