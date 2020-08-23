@@ -90,3 +90,4 @@ Fetching a Single Contact
     assertJsonメソッドはレスポンスを配列へ変換
 Patching a Contact
     patch/put đều dùng để edit
+Deleting a Contact
