@@ -91,3 +91,19 @@ Fetching a Single Contact
 Patching a Contact
     patch/put đều dùng để edit
 Deleting a Contact
+
+==============================================================================================================
+
+                                Refining The API
+
+API Tokens
+    setUp(): Chạy trước mỗi method test. Sử dụng khi muốn khởi tạo biến, mở kết nối file,... chuẩn bị môi trường để test
+        これは、このテストクラスの各メソッドの開始前に必ず呼ばれるメソッドです。
+    tearDown(): Chạy sau mỗi method test. Sử dụng để hủy các biến, kết nối,...
+        これは、このテストクラスの各メソッドの終了後に必ず呼ばれるメソッドです。
+    setUpBeforeClass(): Chạy khi bắt đầu class test
+    tearDownAfterClass(): Chạy sau khi kết thúc class test
+    Test toàn bộ nội dung trong class
+        clear && vendor/bin/phpunit --filter ContactsTest
+    assertRedirect()
+        クライアントが指定したURIへリダイレクトすることをアサート。
