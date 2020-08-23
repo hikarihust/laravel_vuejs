@@ -33,6 +33,8 @@ API Setup & Basic Contacts Test
         https://viblo.asia/p/feature-test-trong-laravel-GrLZD8wwZk0
         https://qiita.com/franz/items/77a47b009b07997ce39c
         https://readouble.com/laravel/5.dev/ja/testing.html
+        Actions Handled By Resource Controller:
+            https://laravel.com/docs/7.x/controllers
     cấu hình cho PHPUnit
         phpunit.xml
     Run test:
@@ -86,3 +88,5 @@ Email & Date Fields
 Fetching a Single Contact
     php artisan make:factory ContactFactory -m Contact
     assertJsonメソッドはレスポンスを配列へ変換
+Patching a Contact
+    patch/put đều dùng để edit

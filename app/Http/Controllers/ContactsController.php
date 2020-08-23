@@ -10,12 +10,7 @@ class ContactsController extends Controller
     public function store()
     {
 
-        $data = request()->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'birthday' => 'required',
-            'company' => 'required',
-        ]);
+        $data = $this->validateData();
 
         Contact::create($data);
     }
@@ -23,5 +18,22 @@ class ContactsController extends Controller
     public function show(Contact $contact)
     {
         return $contact;
+    }
+
+    public function update(Contact $contact)
+    {
+        $data = $this->validateData();
+
+        $contact->update($data);
+    }
+
+    private function validateData()
+    {
+        return request()->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'birthday' => 'required',
+            'company' => 'required',
+        ]);
     }
 }
