@@ -35,6 +35,7 @@ API Setup & Basic Contacts Test
         https://readouble.com/laravel/5.dev/ja/testing.html
         Actions Handled By Resource Controller:
             https://laravel.com/docs/7.x/controllers
+        https://morioh.com/p/iCPNGt7eTMVl
     cấu hình cho PHPUnit
         phpunit.xml
     Run test:
@@ -107,3 +108,7 @@ API Tokens
         clear && vendor/bin/phpunit --filter ContactsTest
     assertRedirect()
         クライアントが指定したURIへリダイレクトすることをアサート。
+Contacts Belong to Users
+    assertJsonCount
+        レスポンスJSONが、指定したキーのアイテムを、期待値分持っていることを宣言。
+        $response->assertJsonCount($count, $key = null);
