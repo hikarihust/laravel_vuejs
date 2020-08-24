@@ -36,6 +36,7 @@ API Setup & Basic Contacts Test
         Actions Handled By Resource Controller:
             https://laravel.com/docs/7.x/controllers
         https://morioh.com/p/iCPNGt7eTMVl
+        https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#Client_error_responses
     cấu hình cho PHPUnit
         phpunit.xml
     Run test:
@@ -112,3 +113,12 @@ Contacts Belong to Users
     assertJsonCount
         レスポンスJSONが、指定したキーのアイテムを、期待値分持っていることを宣言。
         $response->assertJsonCount($count, $key = null);
+Fixing Broken Tests 1
+    http response status codes
+        https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+    Client error responses
+        404 Not Found
+            url sai
+        403 Forbidden
+        401 Unauthorized
+            Khi chưa login
