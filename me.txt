@@ -37,6 +37,7 @@ API Setup & Basic Contacts Test
             https://laravel.com/docs/7.x/controllers
         https://morioh.com/p/iCPNGt7eTMVl
         https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#Client_error_responses
+        https://viblo.asia/p/policy-trong-laravel-WAyK80YkKxX
     cấu hình cho PHPUnit
         phpunit.xml
     Run test:
@@ -125,3 +126,14 @@ Fixing Broken Tests 1
 Fixing Broken Tests 2
     Dựa trên mối quan hệ user hasMany contact nên user_id sẽ được thêm vào khi tạo 1 contact mới
         request()->user()->contacts()->create($this->validateData())
+Refactoring to a Contact Policy
+    https://laravel.com/docs/5.7/authorization#creating-policies
+    php artisan make:policy PostPolicy
+    php artisan help make:policy
+    php artisan make:policy PostPolicy --model=Post
+    php artisan make:policy ContactPolicy -m Contact
+        if(request()->user()->isNot($contact->user)) {
+            return response([], 403);
+        }
+        <=> $this->authorize('view', $contact);
+    https://viblo.asia/p/policy-trong-laravel-WAyK80YkKxX
