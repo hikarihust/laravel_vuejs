@@ -122,3 +122,6 @@ Fixing Broken Tests 1
         403 Forbidden
         401 Unauthorized
             Khi chưa login
+Fixing Broken Tests 2
+    Dựa trên mối quan hệ user hasMany contact nên user_id sẽ được thêm vào khi tạo 1 contact mới
+        request()->user()->contacts()->create($this->validateData())

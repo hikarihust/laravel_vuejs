@@ -14,10 +14,7 @@ class ContactsController extends Controller
 
     public function store()
     {
-
-        $data = $this->validateData();
-
-        Contact::create($data);
+        request()->user()->contacts()->create($this->validateData());
     }
 
     public function show(Contact $contact)
@@ -31,13 +28,19 @@ class ContactsController extends Controller
 
     public function update(Contact $contact)
     {
-        $data = $this->validateData();
+        if(request()->user()->isNot($contact->user)) {
+            return response([], 403);
+        }
 
-        $contact->update($data);
+        $contact->update($this->validateData());
     }
 
     public function destroy(Contact $contact)
     {
+        if(request()->user()->isNot($contact->user)) {
+            return response([], 403);
+        }
+
         $contact->delete();
     }
 
