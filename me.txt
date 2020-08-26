@@ -137,3 +137,10 @@ Refactoring to a Contact Policy
         }
         <=> $this->authorize('view', $contact);
     https://viblo.asia/p/policy-trong-laravel-WAyK80YkKxX
+Refactoring to a Contact Resource
+    assertInstanceOf($class, $instance)
+        $instanceがクラス名$classのインスタンスである
+    php artisan make:resource Contact
+    dd($response->getContent())
+    dd(json_decode($response->getContent()))
+    'last_updated' => $contact->updated_at->diffForHumans(),

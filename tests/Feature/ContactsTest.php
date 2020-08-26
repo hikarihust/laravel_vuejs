@@ -34,7 +34,11 @@ class ContactsTest extends TestCase
 
         $response = $this->get('/api/contacts?api_token=' . $user->api_token);
         $response->assertJsonCount(1)
-                 ->assertJson([['id' => $contact->id]]);
+                 ->assertJson([
+                        "data" => [
+                            ['contact_id' => $contact->id]
+                        ]
+                    ]);
     }
 
     /** @test */
@@ -56,7 +60,7 @@ class ContactsTest extends TestCase
 
         $this->assertEquals('Test Name', $contact->name);
         $this->assertEquals('test@email.com', $contact->email);
-        $this->assertEquals('05/14/1988', $contact->birthday);
+        $this->assertEquals('05/14/1988', $contact->birthday->format('m/d/Y'));
         $this->assertEquals('ABC String', $contact->company);
     }
 
@@ -92,7 +96,8 @@ class ContactsTest extends TestCase
             array_merge($this->data()));
 
         $this->assertCount(1, Contact::all());
-        $this->assertEquals('05-14-1988', $this->parseCarbon(Contact::first()->birthday));
+        $this->assertInstanceOf(Carbon::class, Contact::first()->birthday);
+        $this->assertEquals('05-14-1988', Contact::first()->birthday->format('m-d-Y'));
     }
 
     /** @test */
@@ -103,10 +108,14 @@ class ContactsTest extends TestCase
         $response = $this->get('/api/contacts/' . $contact->id . '?api_token=' . $this->user->api_token);
 
         $response->assertJson([
-            'name' => $contact->name,
-            'email' => $contact->email,
-            'birthday' => $contact->birthday,
-            'company' => $contact->company
+            'data' => [
+                'contact_id' => $contact->id,
+                'name' => $contact->name,
+                'email' => $contact->email,
+                'birthday' => $contact->birthday->format('m/d/Y'),
+                'company' => $contact->company,
+                'last_updated' => $contact->updated_at->diffForHumans(),
+            ]
         ]);
     }
 
@@ -133,7 +142,7 @@ class ContactsTest extends TestCase
 
         $this->assertEquals('Test Name', $contact->name);
         $this->assertEquals('test@email.com', $contact->email);
-        $this->assertEquals('05/14/1988', $contact->birthday);
+        $this->assertEquals('05/14/1988', $contact->birthday->format('m/d/Y'));
         $this->assertEquals('ABC String', $contact->company);
     }
 
@@ -186,6 +195,6 @@ class ContactsTest extends TestCase
     }
 
     private function parseCarbon($date) {
-        return Carbon::parse(Contact::first()->birthday)->format('m-d-Y');
+        return Carbon::parse($date)->format('m-d-Y');
     }
 }
