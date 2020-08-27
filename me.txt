@@ -23,6 +23,14 @@ Laravel Routing & Vue Routing
         npm run watchコマンドはターミナルで実行し続け、関連ファイル全部の変更を監視します。Webpackは変更を感知すると、
         アセットを自動的に再コンパイルします。
 
+laravel_vuejs\resources\js\bootstrap.js do khong dung bootstrap nen bo di phan noi dung:
+    try {
+        window.Popper = require('popper.js').default;
+        window.$ = window.jQuery = require('jquery');
+
+        require('bootstrap');
+    } catch (e) {}
+
 ==============================================================================================================
 
                                 About API Development
@@ -151,3 +159,23 @@ HTTP Responses 1
         assertStatusメソッドは返されたレスポンスが指定したHTTPステータスコードを持っていることをアサートします
     setStatusCode
 HTTP Responses 2
+
+==============================================================================================================
+
+                            User Authentication & Login View Design
+Tailwindcss Setup
+    https://tailwindcss.com/
+    1.Install Tailwind via npm
+        npm install tailwindcss
+    2.Add Tailwind to your CSS
+        laravel_vuejs\resources\sass
+            @tailwind base;
+            @tailwind components;
+            @tailwind utilities;
+    3.Create your Tailwind config file
+        npx tailwindcss init
+    4.Process your CSS with Tailwind
+        Laravel Mix
+    npm run watch
+    laravel_vuejs\node_modules\tailwindcss\dist\tailwind.css
+    -> laravel_vuejs\public\css\app.css
