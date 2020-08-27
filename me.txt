@@ -38,6 +38,7 @@ API Setup & Basic Contacts Test
         https://morioh.com/p/iCPNGt7eTMVl
         https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#Client_error_responses
         https://viblo.asia/p/policy-trong-laravel-WAyK80YkKxX
+        https://viblo.asia/p/laravel-resource-api-maGK740BZj2
     cấu hình cho PHPUnit
         phpunit.xml
     Run test:
@@ -144,3 +145,8 @@ Refactoring to a Contact Resource
     dd($response->getContent())
     dd(json_decode($response->getContent()))
     'last_updated' => $contact->updated_at->diffForHumans(),
+HTTP Responses 1
+    https://viblo.asia/p/laravel-resource-api-maGK740BZj2
+    assertStatus(200)
+        assertStatusメソッドは返されたレスポンスが指定したHTTPステータスコードを持っていることをアサートします
+    setStatusCode
