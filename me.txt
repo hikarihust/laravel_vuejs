@@ -150,3 +150,4 @@ HTTP Responses 1
     assertStatus(200)
         assertStatusメソッドは返されたレスポンスが指定したHTTPステータスコードを持っていることをアサートします
     setStatusCode
+HTTP Responses 2
