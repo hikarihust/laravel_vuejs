@@ -180,3 +180,4 @@ Tailwindcss Setup
     laravel_vuejs\node_modules\tailwindcss\dist\tailwind.css
     -> laravel_vuejs\public\css\app.css
 Login View 1
+Login View 2
