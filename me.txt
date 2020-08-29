@@ -191,3 +191,8 @@ MySQL Setup & User Registration
 App Design 1
 App Design 2
 App Design 3
+
+==============================================================================================================
+
+                                    Views for Contacts
+Create Contacts Design
