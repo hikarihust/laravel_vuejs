@@ -203,3 +203,4 @@ Fetching a Single Contact
     Phương thức created() luôn được thực hiện sớm hơn mounted()
     App Component: created()
     Child Component: mounted()
+Show View Design
