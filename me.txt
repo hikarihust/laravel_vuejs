@@ -197,3 +197,4 @@ App Design 3
                                     Views for Contacts
 Create Contacts Design
 Reusable Input Vue Component
+Submitting the Form
