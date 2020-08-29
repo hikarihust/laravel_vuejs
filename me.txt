@@ -188,3 +188,4 @@ MySQL Setup & User Registration
     php artisan migrate
     // セッションをクリア＆セッションIDを再発行(Illuminate\Session\Store::invalidate)
     session()->invalidate();
+App Design 1
