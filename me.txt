@@ -199,3 +199,7 @@ Create Contacts Design
 Reusable Input Vue Component
 Submitting the Form
 Handling Validation Errors
+Fetching a Single Contact
+    Phương thức created() luôn được thực hiện sớm hơn mounted()
+    App Component: created()
+    Child Component: mounted()

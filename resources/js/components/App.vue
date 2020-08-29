@@ -74,11 +74,14 @@
         created() {
             window.axios.interceptors.request.use(
                 (config) => {
-                    config.data = {
-                        ...config.data,
-                        api_token: this.user.api_token
-                    };
-
+                    if (config.method === 'get') {
+                        config.url = config.url + '?api_token=' + this.user.api_token;
+                    } else {
+                        config.data = {
+                            ...config.data,
+                            api_token: this.user.api_token
+                        };
+                    }
                     return config;
                 }
             )
