@@ -204,3 +204,4 @@ Fetching a Single Contact
     App Component: created()
     Child Component: mounted()
 Show View Design
+User Circle Component
