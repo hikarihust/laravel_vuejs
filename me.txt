@@ -190,3 +190,4 @@ MySQL Setup & User Registration
     session()->invalidate();
 App Design 1
 App Design 2
+App Design 3
