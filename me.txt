@@ -181,3 +181,4 @@ Tailwindcss Setup
     -> laravel_vuejs\public\css\app.css
 Login View 1
 Login View 2
+Login View 3

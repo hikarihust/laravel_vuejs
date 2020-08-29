@@ -22,10 +22,10 @@
 
                 <div>
                     <input id="email" type="email" class="pt-8 w-full rounded p-3 bg-blue-800 text-gray-100 outline-none focus:bg-blue-700"
-                        required autocomplete="email" autofocus placeholder="your@email.com">
+                         autocomplete="email" autofocus placeholder="your@email.com">
 
                     @error('email')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="text-red-600 text-sm pt-1" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
@@ -39,7 +39,7 @@
                     <input id="password" type="password" class="pt-8 w-full rounded p-3 bg-blue-800 text-gray-100 outline-none
                         focus:bg-blue-700" name="password" autocomplete="current-password" placeholder="Password">
                     @error('password')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="text-red-600 text-sm pt-1" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
@@ -47,27 +47,25 @@
             </div>
 
             <div class="pt-2">
-                <div class="col-md-6 offset-md-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                        <label class="text-white" for="remember">Remember Me</label>
-                    </div>
-                </div>
+                <label class="text-white" for="remember">Remember Me</label>
             </div>
 
-            <div class="form-group row mb-0">
-                <div class="col-md-8 offset-md-4">
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('Login') }}
-                    </button>
+            <div class="pt-8">
+                <button type="submit"
+                        class="w-full bg-gray-400 py-2 px-3 text-left uppercase rounded text-blue-800 font-bold">
+                    Login
+                </button>
+            </div>
 
-                    @if (Route::has('password.request'))
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
-                        </a>
-                    @endif
-                </div>
+            <div class="flex justify-between pt-8 text-white text-sm font-bold">
+                <a class="hover:text-blue-200" href="{{ route('password.request') }}">
+                    Forgot Your Password?
+                </a>
+                <a class="hover:text-blue-200" href="{{ route('register') }}">
+                    Register
+                </a>
             </div>
         </form>
     </div>
