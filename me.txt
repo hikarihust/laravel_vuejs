@@ -189,3 +189,4 @@ MySQL Setup & User Registration
     // セッションをクリア＆セッションIDを再発行(Illuminate\Session\Store::invalidate)
     session()->invalidate();
 App Design 1
+App Design 2
