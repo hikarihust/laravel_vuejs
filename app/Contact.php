@@ -4,9 +4,12 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Contact extends Model
 {
+    use Searchable;
+
     protected $guarded = [];
 
     protected $dates = ['birthday'];

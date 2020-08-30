@@ -47,6 +47,11 @@ API Setup & Basic Contacts Test
         https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#Client_error_responses
         https://viblo.asia/p/policy-trong-laravel-WAyK80YkKxX
         https://viblo.asia/p/laravel-resource-api-maGK740BZj2
+        https://viblo.asia/p/scope-trong-laravel-55-naQZRGOPlvx
+        https://viblo.asia/p/laravel-scout-eW65GAYLZDO
+        https://www.e-loop.jp/knowledges/2/
+        https://github.com/teamtnt/laravel-scout-tntsearch-driver
+        https://stackoverflow.com/questions/59559535/laravel-error-the-requested-php-extension-sqlite3-is-missing-from-your-system
     cấu hình cho PHPUnit
         phpunit.xml
     Run test:
@@ -229,3 +234,42 @@ Birthdays Test
     php artisan make:controller BirthdaysController
     https://viblo.asia/p/scope-trong-laravel-55-naQZRGOPlvx
 Birthday view
+Searching Feature 1
+    Laravel Scout
+    https://viblo.asia/p/laravel-scout-eW65GAYLZDO
+    composer require laravel/scout
+    php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"
+    -> \config\scout.php
+    Driver tntsearch(moi truong production thi dung driver algolia)
+    https://github.com/teamtnt/laravel-scout-tntsearch-driver
+    composer require teamtnt/laravel-scout-tntsearch-driver
+    the requested PHP extension sqlite3 is missing from your system
+        https://stackoverflow.com/questions/59559535/laravel-error-the-requested-php-extension-sqlite3-is-missing-from-your-system
+    In your config/scout.php add:
+        'tntsearch' => [
+            'storage'  => storage_path(), //place where the index files will be stored
+            'fuzziness' => env('TNTSEARCH_FUZZINESS', false),
+            'fuzzy' => [
+                'prefix_length' => 2,
+                'max_expansions' => 50,
+                'distance' => 2
+            ],
+            'asYouType' => false,
+            'searchBoolean' => env('TNTSEARCH_BOOLEAN', false),
+        ],
+        -> 'fuzziness' => env('TNTSEARCH_FUZZINESS', true)
+    To prevent your search indexes being commited to your project repository, add the following line to your .gitignore file.
+        /storage/*.index
+    laravel_vuejs\app\Contact.php
+        use Searchable;
+    php artisan scout:import App\\Contact
+        -> Imported [App\Contact] models up to ID: 15(max id cua contact dang la 15)
+    php artisan make:controller SearchController
+    config/app.php
+        'providers' => [
+            // ...
+            TeamTNT\Scout\TNTSearchScoutServiceProvider::class,
+            Laravel\Scout\ScoutServiceProvider::class,
+        ],
+    Và đặt SCOUT_DRIVER=tntsearch ở .env
+        SCOUT_DRIVER=tntsearch
