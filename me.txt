@@ -206,3 +206,4 @@ Fetching a Single Contact
 Show View Design
 User Circle Component
 Redirecting After Create
+Deleting a Contact
