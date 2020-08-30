@@ -4,6 +4,7 @@ import ExampleComponent from "./components/ExampleComponent";
 import ContactsCreate from "./views/ContactsCreate";
 import ContactsShow from "./views/ContactsShow";
 import ContactsEdit from "./views/ContactsEdit";
+import ContactsIndex from "./views/ContactsIndex";
 
 Vue.use(VueRouter);
 
@@ -12,6 +13,9 @@ export default new VueRouter({
         {
             path: '/', component: ExampleComponent,
             meta: { title: 'Welcome' }
+        },
+        {
+            path: '/contacts', component: ContactsIndex,
         },
         {
             path: '/contacts/create', component: ContactsCreate
