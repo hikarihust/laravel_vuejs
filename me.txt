@@ -207,3 +207,15 @@ Show View Design
 User Circle Component
 Redirecting After Create
 Deleting a Contact
+Update a Contact
+    watch, computed
+    https://www.e-loop.jp/knowledges/2/
+    computedプロパティに比べて記述が冗長だが、非同期や複雑な処理などwatchプロパティでしか実現できないものがある。
+        watch: {
+            data: {
+                immediate: true,
+                handler: function (val) {
+                    this.value = val;
+                }
+            }
+        }
