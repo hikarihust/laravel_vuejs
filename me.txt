@@ -228,3 +228,4 @@ Birthdays Test
     php artisan make:test BirthdaysTest
     php artisan make:controller BirthdaysController
     https://viblo.asia/p/scope-trong-laravel-55-naQZRGOPlvx
+Birthday view
