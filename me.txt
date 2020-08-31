@@ -283,3 +283,4 @@ Searching Feature 3
 
                                     The Finishing Touches
 Document Titles
+Logout Sequence
