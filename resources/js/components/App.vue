@@ -39,7 +39,7 @@
             <div class="flex flex-col flex-1 h-screen overflow-y-hidden">
                 <div class="h-16 px-6 border-b border-gray-400 flex items-center justify-between">
                     <div>
-                        Contact
+                        {{ title }}
                     </div>
 
                     <div class="flex items-center">
@@ -73,6 +73,8 @@
         },
 
         created() {
+            this.title = this.$route.meta.title;
+
             window.axios.interceptors.request.use(
                 (config) => {
                     if (config.method === 'get') {
@@ -87,6 +89,22 @@
                 }
             )
         },
+
+        data: function () {
+            return {
+                title: '',
+            }
+        },
+
+        watch: {
+            $route(to, from) {
+                this.title = to.meta.title;
+            },
+
+            title() {
+                document.title = this.title + ' | Jot - The SPA App'
+            }
+        }
     }
 </script>
 
