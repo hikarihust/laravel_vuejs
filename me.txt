@@ -52,6 +52,7 @@ API Setup & Basic Contacts Test
         https://www.e-loop.jp/knowledges/2/
         https://github.com/teamtnt/laravel-scout-tntsearch-driver
         https://stackoverflow.com/questions/59559535/laravel-error-the-requested-php-extension-sqlite3-is-missing-from-your-system
+        https://viblo.asia/p/debounce-va-throttle-trong-javascript-6J3ZgOpMZmB
     cấu hình cho PHPUnit
         phpunit.xml
     Run test:
@@ -273,3 +274,6 @@ Searching Feature 1
         ],
     Và đặt SCOUT_DRIVER=tntsearch ở .env
         SCOUT_DRIVER=tntsearch
+Searching Feature 2
+    lodash.debounce
+    https://viblo.asia/p/debounce-va-throttle-trong-javascript-6J3ZgOpMZmB
